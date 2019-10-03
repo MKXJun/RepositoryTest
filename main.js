@@ -214,6 +214,45 @@ function main() {
 		mouseState.changed = true;
 	});
 	
+	//
+	// 触屏事件
+	//
+	canvas.addEventListener('touchstart', function(e) {
+		if (event.targetTouches.length == 1) {
+			event.preventDefault();
+			lastMouseState.x = mouseState.x;
+			lastMouseState.y = mouseState.y;
+			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
+			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
+			mouseState.leftButton = true;
+			mouseState.changed = true;
+		}
+		
+	});
+	
+	canvas.addEventListener('touchmove', function(e) {
+		if (event.targetTouches.length == 1) {
+			event.preventDefault();
+			lastMouseState.x = mouseState.x;
+			lastMouseState.y = mouseState.y;
+			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
+			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
+			mouseState.changed = true;
+		}
+	});
+	
+	canvas.addEventListener('touchend', function(e) {
+		if (event.targetTouches.length == 1) {
+			event.preventDefault();
+			lastMouseState.x = mouseState.x;
+			lastMouseState.y = mouseState.y;
+			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
+			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
+			mouseState.leftButton = false;
+			mouseState.changed = true;
+		}
+	});
+	
 	// 鼠标输入
 	function mouseInput(dt)
 	{
