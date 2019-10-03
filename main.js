@@ -1,5 +1,8 @@
 "use strict";
 
+const CLIENT_WIDTH = 350;
+const CLIENT_HEIGHT = 350;
+
 //
 // 鼠标事件相关
 //
@@ -48,7 +51,7 @@ function screen2Ray(x, y, View, Proj)
 	let d = vec3.fromValues(-1.0, 1.0, 0.0);
 	let v = vec3.fromValues(x, y, 1.0);
 	
-	let scale = vec3.fromValues(2.0 / 600, -2.0 / 600, 1.0);
+	let scale = vec3.fromValues(2.0 / CLIENT_WIDTH, -2.0 / CLIENT_HEIGHT, 1.0);
 	
 	let offset = d;
 	
