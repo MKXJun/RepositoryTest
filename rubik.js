@@ -1,3 +1,4 @@
+"use strict"
 
 function Cube()
 {
@@ -714,13 +715,13 @@ function Rubik(gl, program)
 	// outArr2 { [X1][Y1] [X2][Y2] ... }
 	this.getSwapIndexArray = function(minTimes)
 	{
+		let outArr = {};
 		// 进行一次顺时针90度旋转相当逆时针交换6次(顶角和棱各3次)
 		// 1   2   4   2   4   2   4   1
 		//   *   ->  *   ->  *   ->  *
 		// 4   3   1   3   3   1   3   2
 		if (minTimes == 1)
 		{
-			outArr = {};
 			outArr.srcIndex = [[0, 0], [0, 1], [0, 2], [1, 2], [2, 2], [2, 1]];
 			outArr.dstIndex = [[0, 2], [1, 2], [2, 2], [2, 1], [2, 0], [1, 0]];
 			outArr.size = 6;
@@ -731,7 +732,6 @@ function Rubik(gl, program)
 		// 4   3   4   1   2   1
 		else if (minTimes == 2)
 		{
-			outArr = {};
 			outArr.srcIndex = [[0, 0], [0, 1], [0, 2], [1, 2]];
 			outArr.dstIndex = [[2, 2], [2, 1], [2, 0], [1, 0]];
 			outArr.size = 4;
@@ -742,7 +742,6 @@ function Rubik(gl, program)
 		// 4   3   1   3   3   1   3   2
 		else if (minTimes == 3)
 		{
-			outArr = {};
 			outArr.srcIndex = [[0, 0], [1, 0], [2, 0], [2, 1], [2, 2], [1, 2]];
 			outArr.dstIndex = [[2, 0], [2, 1], [2, 2], [1, 2], [0, 2], [0, 1]];
 			outArr.size = 6;
@@ -750,7 +749,6 @@ function Rubik(gl, program)
 		// 0次顺时针旋转不变，其余异常数值也不变
 		else
 		{
-			outArr = {};
 			outArr.size = 0;
 		}
 		return outArr;
