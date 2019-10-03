@@ -774,7 +774,7 @@ function main() {
 		mat4.lookAt(View, vec3.fromValues(8.0, 6.0, 8.0),
 			vec3.fromValues(-0.707, -0.5, -0.707),
 			vec3.fromValues(0.0, 1.0, 0.0));
-		mat4.perspective(Proj, glMatrix.toRadian(60), 1.0, 0.1, 1000.0);
+		mat4.perspective(Proj, glMatrix.toRadian(50), 1.0, 0.1, 1000.0);
 		
 		
 		gl.uniformMatrix4fv(program.ULoc.View, false, View);
