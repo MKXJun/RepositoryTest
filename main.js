@@ -214,33 +214,6 @@ function main() {
 		mouseState.changed = true;
 	});
 	
-	canvas.addEventListener('touchstart', function(e) {
-		lastMouseState.x = mouseState.x;
-		lastMouseState.y = mouseState.y;
-		mouseState.x = (e.clientX - canvas.getBoundingClientRect().left);
-		mouseState.y = (e.clientY - canvas.getBoundingClientRect().top);
-		mouseState.leftButton = true;
-		mouseState.changed = true;
-	});
-	
-	canvas.addEventListener('touchmove', function(e) {
-		lastMouseState.x = mouseState.x;
-		lastMouseState.y = mouseState.y;
-		mouseState.x = (e.clientX - canvas.getBoundingClientRect().left);
-		mouseState.y = (e.clientY - canvas.getBoundingClientRect().top);
-		mouseState.leftButton = (e.buttons > 0);
-		mouseState.changed = true;
-	});
-	
-	canvas.addEventListener('touchend', function(e) {
-		lastMouseState.x = mouseState.x;
-		lastMouseState.y = mouseState.y;
-		mouseState.x = (e.clientX - canvas.getBoundingClientRect().left);
-		mouseState.y = (e.clientY - canvas.getBoundingClientRect().top);
-		mouseState.leftButton = false;
-		mouseState.changed = true;
-	});
-	
 	// 鼠标输入
 	function mouseInput(dt)
 	{
@@ -685,7 +658,9 @@ function main() {
 		document.getElementById("gametime").innerHTML="用时: " + gameTime.toFixed(3) + "s";
 		document.getElementById("xycoordinates").innerHTML="鼠标位置: (" + mouseState.x +
 			"," + mouseState.y + ")";
-		document.getElementById("helper").innerHTML="空格: 一键还原  Shift+空格: 重置";
+		document.getElementById("helper").innerHTML="空格: 一键还原，Shift+空格: 重置";
+		document.getElementById("helper2").innerHTML="键盘第一/二排按键、方向键和M,N操作魔方，Shift+键盘第一/二排按键实现复杂操作";
+		document.getElementById("author").innerHTML="Made By MKXJun(X_Jun)";
 		
 		// 将毫秒变为秒
 		now *= 0.001;
