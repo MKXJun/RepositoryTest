@@ -259,6 +259,7 @@ function main() {
 	btnFinish.addEventListener('click', function(e) {
 		rubik.resetCube();
 		gameStatus = GAME_FINISHED;
+		gameTime = 0.0;
 	});
 	
 	let btnReset = document.getElementById("reset");
@@ -459,6 +460,7 @@ function main() {
 			{
 				rubik.resetCube();
 				gameStatus = GAME_FINISHED;
+				gameTime = 0.0;
 				return;
 			}
 			
