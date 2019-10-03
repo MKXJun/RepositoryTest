@@ -659,7 +659,7 @@ function main() {
 		document.getElementById("xycoordinates").innerHTML="鼠标位置: (" + mouseState.x +
 			"," + mouseState.y + ")";
 		document.getElementById("helper").innerHTML="空格: 一键还原，Shift+空格: 重置";
-		document.getElementById("helper2").innerHTML="键盘第一/二排按键、方向键和M,N操作魔方，Shift+键盘第一/二排按键实现复杂操作";
+		document.getElementById("helper2").innerHTML="键盘第一/二排字母、方向键和M,N操作魔方，Shift+键盘第一/二排字母实现复杂操作";
 		document.getElementById("author").innerHTML="Made By MKXJun(X_Jun)";
 		
 		// 将毫秒变为秒
