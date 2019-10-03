@@ -222,8 +222,8 @@ function main() {
 			event.preventDefault();
 			lastMouseState.x = mouseState.x;
 			lastMouseState.y = mouseState.y;
-			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
-			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
+			mouseState.x = Math.trunc(e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
+			mouseState.y = Math.trunc(e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
 			mouseState.leftButton = true;
 			mouseState.changed = true;
 		}
@@ -235,19 +235,17 @@ function main() {
 			event.preventDefault();
 			lastMouseState.x = mouseState.x;
 			lastMouseState.y = mouseState.y;
-			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
-			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
+			mouseState.x = Math.trunc(e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
+			mouseState.y = Math.trunc(e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
 			mouseState.changed = true;
 		}
 	});
 	
 	canvas.addEventListener('touchend', function(e) {
-		if (event.targetTouches.length == 1) {
+		if (event.targetTouches.length == 0) {
 			event.preventDefault();
 			lastMouseState.x = mouseState.x;
 			lastMouseState.y = mouseState.y;
-			mouseState.x = (e.targetTouches[0].clientX - canvas.getBoundingClientRect().left);
-			mouseState.y = (e.targetTouches[0].clientY - canvas.getBoundingClientRect().top);
 			mouseState.leftButton = false;
 			mouseState.changed = true;
 		}
