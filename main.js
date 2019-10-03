@@ -254,6 +254,27 @@ function main() {
 		}
 	});
 	
+	// 按钮事件
+	let btnFinish = document.getElementById("finish");
+	btnFinish.addEventListener('click', function(e) {
+		rubik.resetCube();
+		gameStatus = GAME_FINISHED;
+	});
+	
+	let btnReset = document.getElementById("reset");
+	btnReset.addEventListener('click', function(e) {
+		rubik.resetCube();
+		shuffle();
+		gameStatus = GAME_PREPARING;
+		document.getElementById("finish").disabled = true;
+		document.getElementById("reset").disabled = true;
+		gameTime = 0.0;
+	});
+	
+	// 一开始禁止按钮
+	document.getElementById('finish').disabled = true;
+	document.getElementById('reset').disabled = true;
+	
 	// 鼠标输入
 	function mouseInput(dt)
 	{
@@ -429,6 +450,7 @@ function main() {
 				rubik.resetCube();
 				shuffle();
 				gameStatus = GAME_PREPARING;
+				document.getElementById("一键还原")
 				gameTime = 0.0;
 				return;
 			}
@@ -713,7 +735,11 @@ function main() {
 		if (gameStatus == GAME_PREPARING)
 		{
 			if (shuffleStep === 30 && rubik.isLocked === false)
+			{
 				gameStatus = GAME_READY;
+				document.getElementById('finish').disabled = false;
+				document.getElementById('reset').disabled = false;
+			}
 			else if (rubik.isLocked === false)
 			{
 				switch(shuffleSeq[shuffleStep].axis)
